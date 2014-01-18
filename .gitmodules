@@ -88,3 +88,6 @@
 [submodule "arrow_signs"]
 	path = arrow_signs
 	url = https://bitbucket.org/adrido/arrow_signs.git
+[submodule "antiguest"]
+	path = antiguest
+	url = https://github.com/HybridDog/antiguest
