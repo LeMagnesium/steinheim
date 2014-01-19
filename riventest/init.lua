@@ -1347,3 +1347,46 @@ minetest.register_alias('rtwater', 'riventest:water_source')
 minetest.register_alias('bluebook', 'riventest:linkingbook')
 minetest.register_alias('redbook', 'riventest:plinkingbook')
 
+
+-- Moreblocks !
+if moreblocks then
+	table.insert(circular_saw.known_stairs,"riventest:wood")
+	register_stair_slab_panel_micro("riventest", "wood", "riventest:wood",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		{"riventest_wood.png"},
+		"Wooden",
+		"wood",
+	0)
+
+	table.insert(circular_saw.known_stairs,"riventest:woodblue")
+	register_stair_slab_panel_micro("riventest", "woodblue", "riventest:woodblue",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		{"riventest_woodblue.png"},
+		"Wooden Blue",
+		"woodblue",
+	0)
+
+	table.insert(circular_saw.known_stairs,"riventest:metal")
+	register_stair_slab_panel_micro("riventest", "metal", "riventest:metal",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		{"riventest_metal.png"},
+		"Metal",
+		"metal",
+	0)
+
+	table.insert(circular_saw.known_stairs,"riventest:stoneblue")
+	register_stair_slab_panel_micro("riventest", "stoneblue", "riventest:stoneblue",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		{"riventest_stoneblue.png"},
+		"Stone Blue",
+		"stoneblue",
+	0)
+
+	table.insert(circular_saw.known_stairs,"riventest:rt4")
+	register_stair_slab_panel_micro("riventest", "rt4", "riventest:rt4",
+		{snappy=2,choppy=2,oddly_breakable_by_hand=2},
+		{"riventest_rt4.png"},
+		"rt4",
+		"rt4",
+	0)
+end
