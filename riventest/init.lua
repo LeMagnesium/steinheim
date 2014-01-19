@@ -93,8 +93,8 @@ local on_door1_placed = function( pos, node, placer )
 
 	upos = { x = pos.x, y = pos.y - 1, z = pos.z }
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
-	und = minetest.env:get_node( upos )
-	abv = minetest.env:get_node( apos )
+	und =  minetest.get_node( upos )
+	abv =  minetest.get_node( apos )
 
 	dir = placer:get_look_dir()
 
@@ -109,13 +109,13 @@ local on_door1_placed = function( pos, node, placer )
 	end
 
 	if und.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_a_c', param2 = newparam } )
-		minetest.env:add_node( upos, { name = 'riventest:door1_b_c', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_a_c', param2 = newparam } )
+		 minetest.add_node( upos, { name = 'riventest:door1_b_c', param2 = newparam } )
 	elseif abv.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_b_c', param2 = newparam } )
-		minetest.env:add_node( apos, { name = 'riventest:door1_a_c', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_b_c', param2 = newparam } )
+		 minetest.add_node( apos, { name = 'riventest:door1_a_c', param2 = newparam } )
 	else
-		minetest.env:remove_node( pos )
+		 minetest.remove_node( pos )
 		placer:get_inventory():add_item( "main", 'riventest:door1' )
 		minetest.chat_send_player( placer:get_player_name(), 'not enough space' )
 	end
@@ -149,20 +149,20 @@ local on_door1_punched = function( pos, node, puncher )
 	end
 
 	if ( node.name == 'riventest:door1_a_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_a_o', param2 = newparam } )
-		minetest.env:add_node( upos, { name = 'riventest:door1_b_o', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_a_o', param2 = newparam } )
+		 minetest.add_node( upos, { name = 'riventest:door1_b_o', param2 = newparam } )
 
 	elseif ( node.name == 'riventest:door1_b_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_b_o', param2 = newparam } )
-		minetest.env:add_node( apos, { name = 'riventest:door1_a_o', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_b_o', param2 = newparam } )
+		 minetest.add_node( apos, { name = 'riventest:door1_a_o', param2 = newparam } )
 
 	elseif ( node.name == 'riventest:door1_a_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_a_c', param2 = newparam } )
-		minetest.env:add_node( upos, { name = 'riventest:door1_b_c', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_a_c', param2 = newparam } )
+		 minetest.add_node( upos, { name = 'riventest:door1_b_c', param2 = newparam } )
 
 	elseif ( node.name == 'riventest:door1_b_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door1_b_c', param2 = newparam } )
-		minetest.env:add_node( apos, { name = 'riventest:door1_a_c', param2 = newparam } )
+		 minetest.add_node( pos,  { name = 'riventest:door1_b_c', param2 = newparam } )
+		 minetest.add_node( apos, { name = 'riventest:door1_a_c', param2 = newparam } )
 
 	end
 	minetest.sound_play({name='woodengate', gain=1.5}, {pos=pos, loop=false})
@@ -173,9 +173,9 @@ local on_door1_digged = function( pos, node, digger )
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
 
 	if ( node.name == 'riventest:door1_a_c' ) or ( node.name == 'riventest:door1_a_o' ) then
-		minetest.env:remove_node( upos )
+		 minetest.remove_node( upos )
 	elseif ( node.name == 'riventest:door1_b_c' ) or ( node.name == 'riventest:door1_b_o' ) then
-		minetest.env:remove_node( apos )
+		 minetest.remove_node( apos )
 	end
 end
 
@@ -222,7 +222,7 @@ minetest.register_node( 'riventest:door2_a_c', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door2',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door2_privilege(meta, player)
 	end,	
 })
@@ -240,7 +240,7 @@ minetest.register_node( 'riventest:door2_b_c', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door2',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door2_privilege(meta, player)
 	end,	
 })
@@ -258,7 +258,7 @@ minetest.register_node( 'riventest:door2_a_o', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door2',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door2_privilege(meta, player)
 	end,	
 })
@@ -276,7 +276,7 @@ minetest.register_node( 'riventest:door2_b_o', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door2',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door2_privilege(meta, player)
 	end,	
 })
@@ -286,8 +286,8 @@ local on_door2_placed = function( pos, node, placer )
 
 	upos = { x = pos.x, y = pos.y - 1, z = pos.z }
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
-	und = minetest.env:get_node( upos )
-	abv = minetest.env:get_node( apos )
+	und =  minetest.get_node( upos )
+	abv =  minetest.get_node( apos )
 
 	dir = placer:get_look_dir()
 
@@ -302,23 +302,23 @@ local on_door2_placed = function( pos, node, placer )
 	end
 
 	if und.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		minetest.env:add_node( upos, { name = 'riventest:door2_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door2_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  placer:get_player_name() or "")
 
 	elseif abv.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  placer:get_player_name() or "")
-		minetest.env:add_node( apos, { name = 'riventest:door2_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door2_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  placer:get_player_name() or "")
 
 	else
-		minetest.env:remove_node( pos )
+		 minetest.remove_node( pos )
 		placer:get_inventory():add_item( "main", 'riventest:door2' )
 		minetest.chat_send_player( placer:get_player_name(), 'not enough space' )
 	end
@@ -326,7 +326,7 @@ end
 local on_door2_punched = function( pos, node, puncher )
 	if string.find( node.name, 'riventest:door2' ) == nil then 	return end
 
-	local meta = minetest.env:get_meta(pos)
+	local meta =  minetest.get_meta(pos)
 	if not has_door2_privilege(meta, puncher) then minetest.chat_send_player(puncher:get_player_name(), "door is locked") return end
 
 	upos = { x = pos.x, y = pos.y - 1, z = pos.z }
@@ -355,39 +355,39 @@ local on_door2_punched = function( pos, node, puncher )
 	end
 
 	if ( node.name == 'riventest:door2_a_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_a_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_a_o', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
-		minetest.env:add_node( upos, { name = 'riventest:door2_b_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door2_b_o', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
 	elseif ( node.name == 'riventest:door2_b_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_b_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_b_o', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
-		minetest.env:add_node( apos, { name = 'riventest:door2_a_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door2_a_o', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
 	elseif ( node.name == 'riventest:door2_a_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
-		minetest.env:add_node( upos, { name = 'riventest:door2_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door2_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
 	elseif ( node.name == 'riventest:door2_b_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door2_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door2_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
-		minetest.env:add_node( apos, { name = 'riventest:door2_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door2_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  puncher:get_player_name() or "")
 
 	end
@@ -399,9 +399,9 @@ local on_door2_digged = function( pos, node, digger )
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
 
 	if ( node.name == 'riventest:door2_a_c' ) or ( node.name == 'riventest:door2_a_o' ) then
-		minetest.env:remove_node( upos )
+		 minetest.remove_node( upos )
 	elseif ( node.name == 'riventest:door2_b_c' ) or ( node.name == 'riventest:door2_b_o' ) then
-		minetest.env:remove_node( apos )
+		 minetest.remove_node( apos )
 	end
 end
 
@@ -449,11 +449,11 @@ minetest.register_node( 'riventest:door3_a_c', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door3',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door3_privilege(meta, player)
 	end,	
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[6,2;]"..
 			"field[0.256,0.5;6,1;keycode;Key code:;]"..
 			"button_exit[2.3,1.5;2,1;button;Proceed]")
@@ -461,16 +461,16 @@ minetest.register_node( 'riventest:door3_a_c', {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_door3_privilege(meta, sender) then
 			if fields.keycode == meta:get_string("keycode") then minetest.chat_send_player(sender_name, "pass")
-				on_door3_punched( pos, minetest.env:get_node(pos), sender, true )
+				on_door3_punched( pos,  minetest.get_node(pos), sender, true )
 			else minetest.chat_send_player(sender_name, "you shall not pass") end
 		return end
 		meta:set_string("keycode", fields.keycode)
-		local bometa = minetest.env:get_meta({x=pos.x,y=pos.y-1,z=pos.z})
+		local bometa =  minetest.get_meta({x=pos.x,y=pos.y-1,z=pos.z})
 		bometa:set_string("keycode", fields.keycode)
 	end,	
 })
@@ -488,11 +488,11 @@ minetest.register_node( 'riventest:door3_b_c', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door3',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door3_privilege(meta, player)
 	end,	
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[6,2;]"..
 			"field[0.256,0.5;6,1;keycode;Key code:;]"..
 			"button_exit[2.3,1.5;2,1;button;Proceed]")
@@ -500,16 +500,16 @@ minetest.register_node( 'riventest:door3_b_c', {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_door3_privilege(meta, sender) then
 			if fields.keycode == meta:get_string("keycode") then minetest.chat_send_player(sender_name, "pass")
-				on_door3_punched( pos, minetest.env:get_node(pos), sender, true )
+				on_door3_punched( pos,  minetest.get_node(pos), sender, true )
 			else minetest.chat_send_player(sender_name, "you shall not pass") end
 		return end
 		meta:set_string("keycode", fields.keycode)
-		local bometa = minetest.env:get_meta({x=pos.x,y=pos.y+1,z=pos.z})
+		local bometa =  minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z})
 		bometa:set_string("keycode", fields.keycode)
 
 	end,	
@@ -528,11 +528,11 @@ minetest.register_node( 'riventest:door3_a_o', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door3',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door3_privilege(meta, player)
 	end,	
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[6,2;]"..
 			"field[0.256,0.5;6,1;keycode;Key code:;]"..
 			"button_exit[2.3,1.5;2,1;button;Proceed]")
@@ -540,16 +540,16 @@ minetest.register_node( 'riventest:door3_a_o', {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_door3_privilege(meta, sender) then
 			if fields.keycode == meta:get_string("keycode") then minetest.chat_send_player(sender_name, "pass")
-				on_door3_punched( pos, minetest.env:get_node(pos), sender, true )
+				on_door3_punched( pos,  minetest.get_node(pos), sender, true )
 			else minetest.chat_send_player(sender_name, "you shall not pass") end
 		return end
 		meta:set_string("keycode", fields.keycode)
-		local bometa = minetest.env:get_meta({x=pos.x,y=pos.y-1,z=pos.z})
+		local bometa =  minetest.get_meta({x=pos.x,y=pos.y-1,z=pos.z})
 		bometa:set_string("keycode", fields.keycode)
 		
 	end,	
@@ -568,11 +568,11 @@ minetest.register_node( 'riventest:door3_b_o', {
 	legacy_wallmounted  = true,
 	drop                = 'riventest:door3',
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_door3_privilege(meta, player)
 	end,	
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[6,2;]"..
 			"field[0.256,0.5;6,1;keycode;Key code:;]"..
 			"button_exit[2.3,1.5;2,1;button;Proceed]")
@@ -580,16 +580,16 @@ minetest.register_node( 'riventest:door3_b_o', {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_door3_privilege(meta, sender) then
 			if fields.keycode == meta:get_string("keycode") then minetest.chat_send_player(sender_name, "pass")
-				on_door3_punched( pos, minetest.env:get_node(pos), sender, true )
+				on_door3_punched( pos,  minetest.get_node(pos), sender, true )
 			else minetest.chat_send_player(sender_name, "you shall not pass") end
 		return end
 		meta:set_string("keycode", fields.keycode)
-		local bometa = minetest.env:get_meta({x=pos.x,y=pos.y+1,z=pos.z})
+		local bometa =  minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z})
 		bometa:set_string("keycode", fields.keycode)
 
 	end,		
@@ -600,8 +600,8 @@ local on_door3_placed = function( pos, node, placer )
 
 	upos = { x = pos.x, y = pos.y - 1, z = pos.z }
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
-	und = minetest.env:get_node( upos )
-	abv = minetest.env:get_node( apos )
+	und =  minetest.get_node( upos )
+	abv =  minetest.get_node( apos )
 
 	dir = placer:get_look_dir()
 
@@ -616,23 +616,23 @@ local on_door3_placed = function( pos, node, placer )
 	end
 
 	if und.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		minetest.env:add_node( upos, { name = 'riventest:door3_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door3_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  placer:get_player_name() or "")
 
 	elseif abv.name == 'air' then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  placer:get_player_name() or "")
-		minetest.env:add_node( apos, { name = 'riventest:door3_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door3_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  placer:get_player_name() or "")
 
 	else
-		minetest.env:remove_node( pos )
+		 minetest.remove_node( pos )
 		placer:get_inventory():add_item( "main", 'riventest:door3' )
 		minetest.chat_send_player( placer:get_player_name(), 'not enough space' )
 	end
@@ -640,7 +640,7 @@ end
 on_door3_punched = function( pos, node, puncher,skip )
 	if string.find( node.name, 'riventest:door3' ) == nil then 	return end
 
-	local meta = minetest.env:get_meta(pos)
+	local meta =  minetest.get_meta(pos)
 	local keycode = meta:get_string('keycode')
 	local owner = meta:get_string('owner')
 
@@ -675,46 +675,46 @@ on_door3_punched = function( pos, node, puncher,skip )
 	end
 
 	if ( node.name == 'riventest:door3_a_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_a_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_a_o', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
-		minetest.env:add_node( upos, { name = 'riventest:door3_b_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door3_b_o', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
 	elseif ( node.name == 'riventest:door3_b_c' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_b_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_b_o', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
-		minetest.env:add_node( apos, { name = 'riventest:door3_a_o', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door3_a_o', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
 	elseif ( node.name == 'riventest:door3_a_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
-		minetest.env:add_node( upos, { name = 'riventest:door3_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(upos)
+		 minetest.add_node( upos, { name = 'riventest:door3_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(upos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
 	elseif ( node.name == 'riventest:door3_b_o' ) then
-		minetest.env:add_node( pos,  { name = 'riventest:door3_b_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(pos)
+		 minetest.add_node( pos,  { name = 'riventest:door3_b_c', param2 = newparam } )
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 
-		minetest.env:add_node( apos, { name = 'riventest:door3_a_c', param2 = newparam } )
-		local meta = minetest.env:get_meta(apos)
+		 minetest.add_node( apos, { name = 'riventest:door3_a_c', param2 = newparam } )
+		local meta =  minetest.get_meta(apos)
 		meta:set_string("owner",  owner)
 		meta:set_string("keycode",  keycode)
 	end
@@ -726,9 +726,9 @@ local on_door3_digged = function( pos, node, digger )
 	apos = { x = pos.x, y = pos.y + 1, z = pos.z }
 
 	if ( node.name == 'riventest:door3_a_c' ) or ( node.name == 'riventest:door3_a_o' ) then
-		minetest.env:remove_node( upos )
+		 minetest.remove_node( upos )
 	elseif ( node.name == 'riventest:door3_b_c' ) or ( node.name == 'riventest:door3_b_o' ) then
-		minetest.env:remove_node( apos )
+		 minetest.remove_node( apos )
 	end
 end
 
@@ -792,20 +792,20 @@ minetest.register_node("riventest:linkingbook", {
 	sounds = default.node_sound_defaults(),
 	on_punch = function(pos,node,puncher)
 		local player = puncher:get_player_name()-- or ""
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local stringpos = meta:get_string("location")
 		local p = {}
 		p.x, p.y, p.z = string.match(stringpos, "^([%d.-]+)[, ] *([%d.-]+)[, ] *([%d.-]+)$")
 		if p.x and p.y and p.z then
 
-			teleporiventeste = minetest.env:get_player_by_name(player)
+			teleporiventeste =  minetest.get_player_by_name(player)
 			linkingbook_sound(pos)
 			teleporiventeste:setpos(p)
 			linkingbook_sound(p)
 		end
 	end,
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[8,3;]"..
 			"field[0.256,0.5;8,1;bookname;Book name:;]"..
 			"field[0.256,1.5;8,1;location;Coordinates X,Y,Z:;]"..
@@ -815,7 +815,7 @@ minetest.register_node("riventest:linkingbook", {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_linkingbook_privilege(meta, sender) then
@@ -827,12 +827,12 @@ minetest.register_node("riventest:linkingbook", {
 	end,	
 	
 	after_place_node = function(pos, placer)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
 	end,
 	
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_linkingbook_privilege(meta, player)
 	end,
 	
@@ -867,7 +867,7 @@ minetest.register_node("riventest:plinkingbook", {
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_defaults(),
 	on_punch = function(pos,node,puncher)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		if not has_linkingbook_privilege(meta, puncher) then return end
 		local player = puncher:get_player_name()-- or ""
 		local stringpos = meta:get_string("location")
@@ -875,14 +875,14 @@ minetest.register_node("riventest:plinkingbook", {
 		p.x, p.y, p.z = string.match(stringpos, "^([%d.-]+)[, ] *([%d.-]+)[, ] *([%d.-]+)$")
 		if p.x and p.y and p.z then
 
-			teleporiventeste = minetest.env:get_player_by_name(player)
+			teleporiventeste =  minetest.get_player_by_name(player)
 			linkingbook_sound(pos)
 			teleporiventeste:setpos(p)
 			linkingbook_sound(p)
 		end
 	end,
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "size[8,3;]"..
 			"field[0.256,0.5;8,1;bookname;Book name:;]"..
 			"field[0.256,1.5;8,1;location;Coordinates X,Y,Z:;]"..
@@ -892,7 +892,7 @@ minetest.register_node("riventest:plinkingbook", {
 		meta:set_string("form", "yes")
 	end,	
 	on_receive_fields = function(pos, formname, fields, sender)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		local sender_name = sender:get_player_name()
 
 		if not has_linkingbook_privilege(meta, sender) then
@@ -903,12 +903,12 @@ minetest.register_node("riventest:plinkingbook", {
 		meta:set_string("location", fields.location)
 	end,	
 	after_place_node = function(pos, placer)
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
 	end,
 	
 	can_dig = function(pos,player)
-		meta = minetest.env:get_meta(pos)
+		meta =  minetest.get_meta(pos)
 		return has_linkingbook_privilege(meta, player)
 	end,
 	
@@ -1158,14 +1158,14 @@ extend_chain = function(pos)
 	local upos = {x=pos.x,y=pos.y-1,z=pos.z}
 	local apos = {x=pos.x,y=pos.y+1,z=pos.z}
 	
-	local unode = minetest.env:get_node(upos)
-	local anode = minetest.env:get_node(apos)
+	local unode =  minetest.get_node(upos)
+	local anode =  minetest.get_node(apos)
 	if unode.name == 'air' then
-		minetest.env:add_node( upos, { name = 'riventest:chain'} )	
+		 minetest.add_node( upos, { name = 'riventest:chain'} )	
 		extend_chain(upos)
 	end
 	if anode.name == 'air' then
-		minetest.env:add_node( apos, { name = 'riventest:chain'} )	
+		 minetest.add_node( apos, { name = 'riventest:chain'} )	
 		extend_chain(apos)
 	end	
 
@@ -1180,11 +1180,10 @@ minetest.register_node("riventest:chain", {
 	paramtype = "light",
 	walkable = false,
 	climbable = true,
-	buildable_to = true,
-	drop = "",
+	--buildable_to = true,
 	groups = {snappy=2,dig_immediate=3},
 	sounds = default.node_sound_wood_defaults(),
-	after_place_node = extend_chain,
+	--after_place_node = extend_chain,
 })
 minetest.register_node("riventest:water_flowing", {
 	description = "Flowing Water",
@@ -1277,14 +1276,14 @@ minetest.register_node("riventest:dagger", {
 	legacy_wallmounted = true,
 	sounds = default.node_sound_defaults(),
 	on_construct = function(pos)
-		--local n = minetest.env:get_node(pos)
-		local meta = minetest.env:get_meta(pos)
+		--local n =  minetest.get_node(pos)
+		local meta =  minetest.get_meta(pos)
 		meta:set_string("formspec", "hack:sign_text_input")
 		meta:set_string("infotext", "\"\"")
 	end,
 	on_receive_fields = function(pos, formname, fields, sender)
 		--print("Sign at "..minetest.pos_to_string(pos).." got "..dump(fields))
-		local meta = minetest.env:get_meta(pos)
+		local meta =  minetest.get_meta(pos)
 		fields.text = fields.text or ""
 		print((sender:get_player_name() or "").." wrote \""..fields.text..
 				"\" to sign at "..minetest.pos_to_string(pos))
