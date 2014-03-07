@@ -12,19 +12,19 @@ minetest.register_abm({
 		
 		action = function(pos, node, active_object_count, active_object_count_wider)
 		if node.name == "fireworks:red" then
-				  minetest.env:remove_node(pos,{name="fireworks:red"})
+				  minetest.remove_node(pos,{name="fireworks:red"})
 		elseif node.name == "fireworks:blue" then
-		          minetest.env:remove_node(pos,{name="fireworks:blue"})
+		          minetest.remove_node(pos,{name="fireworks:blue"})
 		elseif node.name == "fireworks:green" then
-				  minetest.env:remove_node(pos,{name="fireworks:green"})
+				  minetest.remove_node(pos,{name="fireworks:green"})
 		elseif node.name == "fireworks:purple" then
-		          minetest.env:remove_node(pos,{name="fireworks:purple"})
+		          minetest.remove_node(pos,{name="fireworks:purple"})
 		elseif node.name == "fireworks:orange" then
-				  minetest.env:remove_node(pos,{name="fireworks:orange"})
+				  minetest.remove_node(pos,{name="fireworks:orange"})
 		elseif node.name == "fireworks:yellow" then
-		          minetest.env:remove_node(pos,{name="fireworks:yellow"})
+		          minetest.remove_node(pos,{name="fireworks:yellow"})
 		elseif node.name == "fireworks:rainbow" then
-		          minetest.env:remove_node(pos,{name="fireworks:rainbow"})
+		          minetest.remove_node(pos,{name="fireworks:rainbow"})
 				  
 			end
 		end
@@ -246,13 +246,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:red'}) 
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:red'}) 
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_red"})
+minetest.remove_node(pos,{name="fireworks:firework_red"})
 elseif
   node.name == "fireworks:firework_blue" 
 then
@@ -260,13 +261,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:blue'}) 
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:blue'}) 
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_blue"})
+minetest.remove_node(pos,{name="fireworks:firework_blue"})
 elseif
   node.name == "fireworks:firework_green" 
 then
@@ -274,13 +276,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:green'})
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:green'})
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_green"})
+minetest.remove_node(pos,{name="fireworks:firework_green"})
 elseif
   node.name == "fireworks:firework_purple" 
 then
@@ -288,13 +291,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:purple'})
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:purple'})
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_purple"})
+minetest.remove_node(pos,{name="fireworks:firework_purple"})
 elseif
   node.name == "fireworks:firework_orange" 
 then
@@ -302,13 +306,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:orange'})
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:orange'})
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_orange"})
+minetest.remove_node(pos,{name="fireworks:firework_orange"})
 elseif
   node.name == "fireworks:firework_yellow" 
 then
@@ -316,13 +321,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:yellow'})
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:yellow'})
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_yellow"})
+minetest.remove_node(pos,{name="fireworks:firework_yellow"})
 elseif
   node.name == "fireworks:firework_rainbow" 
 then
@@ -330,13 +336,14 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
-   if x*x+y*y+z*z <= radius*radius then
-      minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:rainbow'})
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
+   if x*x+y*y+z*z <= radius*radius and minetest.get_node(firepos).name == "air" then
+      minetest.add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:rainbow'})
 end
 end
 end
 end
-minetest.env:remove_node(pos,{name="fireworks:firework_rainbow"})
+minetest.remove_node(pos,{name="fireworks:firework_rainbow"})
 end
 end
 minetest.register_on_punchnode(fireworks_activate)
