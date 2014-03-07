@@ -246,8 +246,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:red'}) 
+    end
 end
 end
 end
@@ -260,8 +263,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:blue'}) 
+    end
 end
 end
 end
@@ -274,8 +280,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:green'})
+    end
 end
 end
 end
@@ -288,8 +297,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:purple'})
+    end
 end
 end
 end
@@ -302,8 +314,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:orange'})
+    end
 end
 end
 end
@@ -316,8 +331,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:yellow'})
+    end
 end
 end
 end
@@ -330,8 +348,11 @@ local radius = 4
 for x=-radius,radius do
 for y=-radius,radius do
 for z=-radius,radius do
+   local firepos = {x = pos.x+x+xrand,y = pos.y+y+yrand,z = pos.z+z+zrand}
    if x*x+y*y+z*z <= radius*radius then
+    if minetest.env:get_node(firepos).name == "air" then
       minetest.env:add_node({x=pos.x+x+xrand,y=pos.y+y+yrand,z=pos.z+z+zrand},{name='fireworks:rainbow'})
+    end
 end
 end
 end
