@@ -27,7 +27,9 @@ minetest.register_globalstep(function(dtime)
 	timer=0
 	for _, player in pairs(minetest.get_connected_players()) do
 		local name = player:get_player_name()
-		player:hud_change(horlogeshud[name].id, "text",""..os.date("%H")..":"..os.date("%M").."")
+		if horlogeshud[name] then
+			player:hud_change(horlogeshud[name].id, "text",""..os.date("%H")..":"..os.date("%M").."")
+		end
 	end
 end)
 
