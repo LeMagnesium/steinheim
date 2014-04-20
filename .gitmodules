@@ -91,3 +91,9 @@
 [submodule "antiguest"]
 	path = antiguest
 	url = https://github.com/HybridDog/antiguest
+[submodule "memorandum"]
+	path = memorandum
+	url = https://github.com/Mossmanikin/memorandum
+[submodule "inbox"]
+	path = inbox
+	url = https://github.com/bas080/inbox
