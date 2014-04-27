@@ -97,3 +97,6 @@
 [submodule "inbox"]
 	path = inbox
 	url = https://github.com/bas080/inbox
+[submodule "sabrelaser"]
+	path = sabrelaser
+	url = https://github.com/turbogus/sabrelaser.git
