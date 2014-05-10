@@ -100,3 +100,9 @@
 [submodule "sabrelaser"]
 	path = sabrelaser
 	url = https://github.com/turbogus/sabrelaser.git
+[submodule "locks"]
+	path = locks
+	url = https://github.com/Sokomine/locks
+[submodule "hud"]
+	path = hud
+	url = https://github.com/BlockMen/hud
