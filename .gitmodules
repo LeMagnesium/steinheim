@@ -1,9 +1,6 @@
 [submodule "carts"]
 	path = carts
 	url = git://github.com/PilzAdam/carts.git
-[submodule "farming_plus"]
-	path = farming_plus
-	url = git://github.com/PilzAdam/farming_plus.git
 [submodule "holo"]
 	path = holo
 	url = git://github.com/Jat15/holo.git
@@ -15,13 +12,10 @@
 	url = git://github.com/Jat15/corbeille.git
 [submodule "worldedit"]
 	path = worldedit
-	url = git://github.com/Uberi/MineTest-WorldEdit.git
+	url = https://github.com/Uberi/Minetest-WorldEdit
 [submodule "plantlife"]
 	path = plantlife
 	url = git://github.com/VanessaE/plantlife.git
-[submodule "calinou_mods"]
-	path = calinou_mods
-	url = git://github.com/Calinou/calinou_mods.git
 [submodule "dirt"]
 	path = dirt
 	url = git://github.com/turbogus/dirt.git
@@ -64,6 +58,51 @@
 [submodule "fluide"]
 	path = fluide
 	url = https://github.com/turbogus/fluide.git
-[submodule "boats_modif"]
-	path = boats_modif
-	url = https://github.com/Zaraki98/nboats.git
+[submodule "maptools"]
+	path = maptools
+	url = git://github.com/Calinou/maptools
+[submodule "moreblocks"]
+	path = moreblocks
+	url = git://github.com/Calinou/moreblocks
+[submodule "moreores"]
+	path = moreores
+	url = git://github.com/Calinou/moreores
+[submodule "beer"]
+	path = beer
+	url = git://github.com/Jat15/beer.git
+[submodule "homedecor"]
+	path = homedecor
+	url = git://github.com/VanessaE/homedecor
+[submodule "wield3d"]
+	path = wield3d
+	url = git://github.com/stujones11/wield3d
+[submodule "bobblocks"]
+	path = bobblocks
+	url = git://github.com/Jat15/BobBlocks.git
+[submodule "farming_plus"]
+	path = farming_plus
+	url = https://github.com/PilzAdam/farming_plus
+[submodule "hops"]
+	path = hops
+	url = git://github.com/Jat15/hops.git
+[submodule "arrow_signs"]
+	path = arrow_signs
+	url = https://bitbucket.org/adrido/arrow_signs.git
+[submodule "antiguest"]
+	path = antiguest
+	url = https://github.com/HybridDog/antiguest
+[submodule "memorandum"]
+	path = memorandum
+	url = https://github.com/Mossmanikin/memorandum
+[submodule "inbox"]
+	path = inbox
+	url = https://github.com/bas080/inbox
+[submodule "sabrelaser"]
+	path = sabrelaser
+	url = https://github.com/turbogus/sabrelaser.git
+[submodule "locks"]
+	path = locks
+	url = https://github.com/Sokomine/locks
+[submodule "hud"]
+	path = hud
+	url = https://github.com/BlockMen/hud
