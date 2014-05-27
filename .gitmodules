@@ -106,3 +106,6 @@
 [submodule "hud"]
 	path = hud
 	url = https://github.com/BlockMen/hud
+[submodule "argent"]
+	path = argent
+	url = https://github.com/Zaraki98/argent.git
