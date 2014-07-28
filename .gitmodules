@@ -49,9 +49,6 @@
 [submodule "deco"]
 	path = deco
 	url = git://github.com/turbogus/deco.git
-[submodule "siderurgie"]
-	path = siderurgie
-	url = git://github.com/turbogus/siderurgie.git
 [submodule "fluide"]
 	path = fluide
 	url = https://github.com/turbogus/fluide.git
