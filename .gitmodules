@@ -40,9 +40,6 @@
 [submodule "mini_economique"]
 	path = mini_economique
 	url = git://github.com/Jat15/economique.git
-[submodule "boats"]
-	path = boats
-	url = git://github.com/PilzAdam/boats.git
 [submodule "soccer"]
 	path = soccer
 	url = git://github.com/kaeza/minetest-soccer.git
@@ -60,7 +57,7 @@
 	url = https://github.com/turbogus/fluide.git
 [submodule "maptools"]
 	path = maptools
-	url = git://github.com/Calinou/maptools
+	url = git://gitorious.org/calinou/maptools.git
 [submodule "moreblocks"]
 	path = moreblocks
 	url = git://gitorious.org/calinou/moreblocks.git
@@ -94,9 +91,6 @@
 [submodule "memorandum"]
 	path = memorandum
 	url = https://github.com/Mossmanikin/memorandum
-[submodule "inbox"]
-	path = inbox
-	url = https://github.com/bas080/inbox
 [submodule "sabrelaser"]
 	path = sabrelaser
 	url = https://github.com/turbogus/sabrelaser.git
@@ -106,7 +100,6 @@
 [submodule "hud"]
 	path = hud
 	url = https://github.com/BlockMen/hud
-
 [submodule "argent"]
 	path = argent
 	url = https://github.com/Zaraki98/argent
