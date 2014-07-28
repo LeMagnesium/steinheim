@@ -66,7 +66,7 @@
 	url = git://gitorious.org/calinou/moreblocks.git
 [submodule "moreores"]
 	path = moreores
-	url = git://github.com/Calinou/moreores
+	url = git://gitorious.org/calinou/moreores.git
 [submodule "beer"]
 	path = beer
 	url = git://github.com/Jat15/beer.git
