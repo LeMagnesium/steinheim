@@ -63,7 +63,7 @@
 	url = git://github.com/Calinou/maptools
 [submodule "moreblocks"]
 	path = moreblocks
-	url = git://github.com/Calinou/moreblocks
+	url = git://gitorious.org/calinou/moreblocks.git
 [submodule "moreores"]
 	path = moreores
 	url = git://github.com/Calinou/moreores
