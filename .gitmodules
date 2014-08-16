@@ -94,3 +94,6 @@
 [submodule "argent"]
 	path = argent
 	url = https://github.com/turbogus/argent.git
+[submodule "MinetestMods"]
+	path = MinetestMods
+	url = https://github.com/ZeVirax/MinetestMods.git
