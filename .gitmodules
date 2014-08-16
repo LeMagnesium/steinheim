@@ -91,3 +91,6 @@
 [submodule "locks"]
 	path = locks
 	url = https://github.com/Sokomine/locks
+[submodule "argent"]
+	path = argent
+	url = https://github.com/turbogus/argent.git
