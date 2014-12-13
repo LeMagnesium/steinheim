@@ -236,9 +236,9 @@ end]]
 function fireworks_activate (pos, node)
 --play_sound(fireworks, 1)
 
-zrand = math.random(-10, 10)
-xrand = math.random(-10,10)
-yrand = math.random(10, 30)
+local zrand = math.random(-10, 10)
+local xrand = math.random(-10,10)
+local yrand = math.random(10, 30)
 if 
   node.name == "fireworks:firework_red" 
 then

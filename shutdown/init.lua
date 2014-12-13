@@ -19,8 +19,8 @@ minetest.register_globalstep(function(dtime)
 		return
 	end
 	timer = 0
-	heure = os.date("%H")
-	minute = os.date("%M")
+	local heure = os.date("%H")
+	local minute = os.date("%M")
 	if heure == "4" and minute == "30" then        --modifier ici à  vos besoin
 		minetest.chat_send_all("Arret du serveur pour sauvegarde dans 30min --- Veuillez vous deconnecter.")
 	elseif heure == "4" and minute == "45" then         --modifier ici à  vos besoin

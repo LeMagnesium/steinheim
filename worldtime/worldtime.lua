@@ -28,6 +28,7 @@ end
 
 worldtime.worldtime = 0
 worldtime.worldtime_subsec = 0
+local modname
 
 worldtime.get_filename = function() 
 	return minetest.get_worldpath(modname) .. "/" .. worldtime.save_file_name
