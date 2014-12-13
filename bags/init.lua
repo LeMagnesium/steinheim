@@ -10,7 +10,7 @@ License: GPLv3
 
 local S
 
-if intllib then
+if minetest.get_modpath("intllib") ~= nil then
 	S = intllib.Getter()
 else
 	S = function(s) return s end
