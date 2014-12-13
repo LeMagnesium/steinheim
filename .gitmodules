@@ -58,15 +58,6 @@
 [submodule "fluide"]
 	path = fluide
 	url = https://github.com/turbogus/fluide.git
-[submodule "maptools"]
-	path = maptools
-	url = git://github.com/Calinou/maptools
-[submodule "moreblocks"]
-	path = moreblocks
-	url = git://github.com/Calinou/moreblocks
-[submodule "moreores"]
-	path = moreores
-	url = git://github.com/Calinou/moreores
 [submodule "beer"]
 	path = beer
 	url = git://github.com/Jat15/beer.git
@@ -91,3 +82,15 @@
 [submodule "antiguest"]
 	path = antiguest
 	url = https://github.com/HybridDog/antiguest
+[submodule "argent"]
+	path = argent
+	url = http://github.com/turbogus/argent
+[submodule "maptools"]
+	path = maptools
+	url = http://gitorious.org/calinou/maptools.git
+[submodule "moreblocks"]
+	path = moreblocks
+	url = http://gitorious.org/calinou/moreblocks.git
+[submodule "moreores"]
+	path = moreores
+	url = http://gitorious.org/calinou/moreores.git
