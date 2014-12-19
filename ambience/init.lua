@@ -117,7 +117,7 @@ local nodes_in_range = function(pos, search_distance, node_name)
 end
 
 local nodes_in_coords = function(minp, maxp, node_name)
-	nodes = minetest.env:find_nodes_in_area(minp, maxp, node_name)
+	local nodes = minetest.env:find_nodes_in_area(minp, maxp, node_name)
 	--minetest.chat_send_all("Found (" .. node_name .. ": " .. #nodes .. ")")
 	return #nodes
 end
@@ -201,8 +201,8 @@ local get_ambience = function(player)
 	last_y_pos =pos.y
 	
 	local air_or_ignore = {air=true,ignore=true}
-	minp = {x=pos.x-3,y=pos.y-4, z=pos.z-3}
-	maxp = {x=pos.x+3,y=pos.y-1, z=pos.z+3}
+	local minp = {x=pos.x-3,y=pos.y-4, z=pos.z-3}
+	local maxp = {x=pos.x+3,y=pos.y-1, z=pos.z+3}
 	local air_under_player = nodes_in_coords(minp, maxp, "air")
 	local ignore_under_player = nodes_in_coords(minp, maxp, "ignore")
 	air_plus_ignore_under = air_under_player + ignore_under_player
